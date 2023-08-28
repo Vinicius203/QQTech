@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vendedor.css">
+    <title>Loja - Vendedores</title>
+</head>
+
+<body>
+    <div id="pageSwitchButtons">
+        <button onclick="switchToClientes()">Clientes</button>
+        <button onclick="switchToProdutos()">Produtos</button>
+        <button onclick="switchToVendedores()">Vendedores</button>
+    </div>
+
+    <div id="mainContainer">
+        <div id="cadastroVendedor" class="hidden">
+            <h2>Cadastro de Vendedores</h2>
+
+            <form id="vendedorForm" onsubmit="submitVendedorForm(event)">
+                <div class="input-container">
+                    <label>Nome</label>
+                    <input type="text" id="vendedorNome">
+                </div>
+
+                <div class="input-container">
+                    <label>Matrícula</label>
+                    <input type="text" id="vendedorMatricula">
+                </div>
+
+                <button class="btnForm" type="submit">Submit</button>
+                <button class="btnForm" type="reset">Limpar</button>
+            </form>
+        </div>
+
+        <div id="consultaVendedor">
+            <h2>Consulta de Vendedores</h2>
+            <div class="input-container">
+                <p>Olá! Para consultar vendedores, informe a matrícula!</p>
+                <label for="consultaMatricula">Matrícula</label>
+                <input type="text" id="consultaMatricula" class="vendedorMatricula" autocomplete="off">
+                <button id="btnSearchVendedor" class="btnForm" onclick="findVendedorByMatricula()"
+                    type="button">Pesquisar</button>
+            </div>
+        </div>
+
+        <div id="exibeDadosVendedor" class="hidden">
+            <h2>Dados dos Vendedores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="vendedorTableBody">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button onclick="excluirVendedor($`{i}`)">Excluir</button>
+                            <button onclick="editarVendedor($`{i}`)">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    </div>
+
+    <script src="vendedor.js"></script>
+</body>
+
+</html>

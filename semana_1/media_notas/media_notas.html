@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Média Notas</title>
+</head>
+
+<body>
+    <h1>Calculo de Média</h1>
+    <p>Olá, seja bem-vindo! Entre com o seu nome!</p>
+    <input type="text" id="getName">
+    <p>Escolha a quantidade de notas que deseja informar [2, 4]: </p>
+    <input type="number" id="numNotes" min="2" max="4" placeholder="Digite um valor de 2 a 4">
+    <button onclick="createNoteInputs()">Submit</button>
+    <br></br>
+    <div id="noteInputs"></div>
+    <br></br>
+    <button onclick="getMeans()">Calcular Média</button>
+    <script src="media_notas.js"></script>
+</body>
+
+</html>

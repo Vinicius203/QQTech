@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cliente.css">
+    <title>Loja</title>
+</head>
+
+<body onload="maskCPF()">
+    <div id="pageSwitchButtons">
+        <button onclick="switchToClientes()">Clientes</button>
+        <button onclick="switchToProdutos()">Produtos</button>
+        <button onclick="switchToVendedores()">Vendedores</button>
+    </div>
+
+    <div id="mainContainer">
+        <div id="cadastroCliente">
+            <h2>Cadastro de Clientes</h2>
+
+            <form id="clientForm" onsubmit="submitForm(event)">
+                <div class="input-container">
+                    <label>Nome</label>
+                    <input type="text" id="clientName">
+                </div>
+
+                <div class="input-container">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="clientBirthdate">
+                </div>
+
+                <div class="input-container">
+                    <label>CPF</label>
+                    <input type="text" id="clientCPF" class="clienteCPF" maxlength="14" autocomplete="off">
+                </div>
+
+                <div class="input-container" id="radioOptions">
+                    <label>Cadastro</label>
+                    <div class="radio-buttons">
+                        <input type="radio" name="registerType" id="registerLoja" value="Loja">
+                        <label for="registerLoja">Loja</label>
+                        <input type="radio" name="registerType" id="registerSite" value="Site">
+                        <label for="registerSite">Site</label>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <label>Score (0-1000)</label>
+                    <input type="number" id="creditScore" min="0" max="1000" onkeyup="limitScoreValue()">
+                </div>
+
+                <button class="btnForm" type="submit">Submit</button>
+                <button class="btnForm" type="reset">Limpar</button>
+            </form>
+
+        </div>
+
+        <div id="consultaCliente">
+            <h2>Consulta de Clientes</h2>
+            <div class="input-container">
+                <p>Olá! Para que seja possível consultar algum cliente, por favor entre com o seu CPF!</p>
+                <label>CPF</label>
+                <input type="text" id="consultaCPF" class="clienteCPF" maxlength="14" autocomplete="off">
+                <button id="btnSearch" class="btnForm" onclick="findClient()" type="button">Pesquisar</button>
+
+            </div>
+        </div>
+
+
+        <div id="exibeDados" class="hidden">
+            <h2>Dados do Cliente</h2>
+            <p id="nomeCliente"></p>
+            <p id="dataNascimentoCliente"></p>
+            <p id="cpfCliente"></p>
+            <p id="tipoCadastroCliente"></p>
+            <p id="Score"></p>
+        </div>
+
+    </div>
+
+    <script src="cliente.js"></script>
+</body>
+
+</html>

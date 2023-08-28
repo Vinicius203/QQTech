@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="produto.css">
+    <title>Loja</title>
+</head>
+
+<body onload="maskCPF()">
+    <div id="pageSwitchButtons">
+        <button onclick="switchToClientes()">Clientes</button>
+        <button onclick="switchToProdutos()">Produtos</button>
+        <button onclick="switchToVendedores()">Vendedores</button>
+    </div>
+
+    <div id="mainContainer">
+        <div id="cadastroProduto" class="hidden">
+            <h2>Cadastro de Produtos</h2>
+
+            <form id="productForm" onsubmit="submitProductForm(event)">
+                <div class="input-container">
+                    <label>Nome</label>
+                    <input type="text" id="productName">
+                </div>
+
+                <div class="input-container">
+                    <label>Categoria</label>
+                    <input type="text" id="productCategory">
+                </div>
+
+                <div class="input-container">
+                    <label>Valor</label>
+                    <input type="number" id="productValue" step="0.01">
+                </div>
+
+                <button class="btnForm" type="submit">Submit</button>
+                <button class="btnForm" type="reset">Limpar</button>
+            </form>
+        </div>
+
+        <div id="consultaProduto">
+            <h2>Consulta de Produtos</h2>
+            <div class="input-container">
+                <p>Olá! Para consultar produtos, informe a categoria!</p>
+                <label for="consultaCategoria">Categoria</label>
+                <input type="text" id="consultaCategoria" class="produtoCategoria" autocomplete="off">
+                <button id="btnSearchProduct" class="btnForm" onclick="findProductByCategory()"
+                    type="button">Pesquisar</button>
+            </div>
+        </div>
+
+        <div id="exibeDadosProduto" class="hidden">
+            <h2>Dados dos Produtos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody id="produtoTableBody">
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <script src="produto.js"></script>
+</body>
+
+</html>

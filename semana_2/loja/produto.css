@@ -1,0 +1,126 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: lightgray;
+}
+
+#pageSwitchButtons {
+    text-align: center;
+    margin: 20px;
+}
+
+#pageSwitchButtons button {
+    background-color: rgb(213, 242, 252);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 200;
+}
+
+#pageSwitchButtons button:hover {
+    background-color: rgba(213, 242, 252, 0.8);
+}
+
+#mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+#cadastroProduto,
+#consultaProduto,
+#exibeDadosProduto {
+    background-color: rgb(213, 242, 252);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+}
+
+#consultaProduto input[type="text"] {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#consultaProduto p {
+    background-color: white;
+}
+
+.btnForm {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#btnSearchProduct {
+    margin-top: 15px;
+    width: 60%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.label {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.radio-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#exibeDadosProduto {
+    text-align: center;
+}
+
+#exibeDadosProduto table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid lightgray;
+}
+
+#exibeDadosProduto th,
+#exibeDadosProduto td {
+    border: 2px solid lightgray;
+    padding: 10px;
+}
+
+
+.hidden {
+    display: none;
+}
