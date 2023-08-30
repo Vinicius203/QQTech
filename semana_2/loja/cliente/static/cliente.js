@@ -48,20 +48,21 @@ function submitForm(event) {
 
     const clientData = [clientName, clientBirthdate, clientCPF, registerType, creditScore]
     clientList.push(clientData)
-
-    console.log(clientList)
 }
 
 
 function findClient() {
+    console.log("clientlist:", clientList)
     if (clientList.length === 0) {
         alert("Não há nenhum cliente cadastrado!");
     } else {
-        const cpfSearch = document.getElementById("consultaCPF").value;
+        const cpfSearch = document.getElementById("consultaCPF").value.replace(/[^\d]/g, '');
         let clientFound = false;
 
         for (let i = 0; i < clientList.length; i++) {
-            if (cpfSearch === clientList[i][2]) {
+            const formattedCPF = clientList[i][2].replace(/[^\d]/g, '');
+            console.log("Comparing:", cpfSearch, formattedCPF);
+            if (cpfSearch === formattedCPF) {
                 exibeCliente(i);
                 clientFound = true;
             }
@@ -96,17 +97,40 @@ function exibeCliente(i) {
     clientScore.textContent = `Score: ${clientList[i][4]}`
 }
 
+function gerarRelatorio() {
+    console.log("Hello");
+    const clientJsonData = JSON.stringify(clientList);
+    console.log("Dados: ", clientJsonData);
+
+    fetch("http://localhost:5000/gerar-relatorio", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: clientJsonData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Reponse JSON:", data)
+            if (data.success) {
+                console.log("Relatório gerado com sucesso! Caminho do arquivo:", data.output_path);
+            } else {
+                console.error("Erro ao gerar relatório:", data.error);
+            }
+        })
+}
+
+
 function switchToClientes() {
     window.location.href = 'cliente.html';
 }
 
 function switchToProdutos() {
-    window.location.href = 'produto.html';
+    window.location.href = '../../produto/templates/produto.html';
 }
 
 function switchToVendedores() {
-    window.location.href = 'vendedor.html';
+    window.location.href = '../../vendedor/templates/vendedor.html';
 }
-
 
 

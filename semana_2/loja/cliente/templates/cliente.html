@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cliente.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cliente.css') }}">
     <title>Loja</title>
 </head>
 
@@ -63,7 +63,7 @@
                 <label>CPF</label>
                 <input type="text" id="consultaCPF" class="clienteCPF" maxlength="14" autocomplete="off">
                 <button id="btnSearch" class="btnForm" onclick="findClient()" type="button">Pesquisar</button>
-
+                <button id="gerarRelatorio" class="btnForm" onclick="gerarRelatorio()">Relatório</button>
             </div>
         </div>
 
@@ -79,7 +79,7 @@
 
     </div>
 
-    <script src="cliente.js"></script>
+    <script src="{{ url_for('static', filename='cliente.js') }}"></script>
 </body>
 
 </html>

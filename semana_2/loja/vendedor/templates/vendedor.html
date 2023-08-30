@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendedor.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendedor.css') }}">
     <title>Loja - Vendedores</title>
 </head>
 
@@ -43,6 +43,7 @@
                 <input type="text" id="consultaMatricula" class="vendedorMatricula" autocomplete="off">
                 <button id="btnSearchVendedor" class="btnForm" onclick="findVendedorByMatricula()"
                     type="button">Pesquisar</button>
+                <button id="gerarRelatorio" class="btnForm" onclick="gerarRelatorio()">Relatório</button>
             </div>
         </div>
 
@@ -73,7 +74,7 @@
 
     </div>
 
-    <script src="vendedor.js"></script>
+    <script src="{{ url_for('static', filename='vendedor.js') }}"></script>
 </body>
 
 </html>

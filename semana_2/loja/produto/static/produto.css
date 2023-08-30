@@ -38,9 +38,9 @@ body {
     flex-wrap: wrap;
 }
 
-#cadastroVendedor,
-#consultaVendedor,
-#exibeDadosVendedor {
+#cadastroProduto,
+#consultaProduto,
+#exibeDadosProduto {
     background-color: rgb(213, 242, 252);
     padding: 20px;
     border-radius: 10px;
@@ -53,14 +53,14 @@ body {
     font-weight: 200;
 }
 
-#consultaVendedor input[type="text"] {
+#consultaProduto input[type="text"] {
     width: 60%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#consultaVendedor p {
+#consultaProduto p {
     background-color: white;
 }
 
@@ -70,8 +70,12 @@ body {
     width: 100%;
 }
 
-#btnSearchVendedor {
+#btnSearchProduct {
     margin-top: 15px;
+    width: 60%;
+}
+
+#gerarRelatorio {
     width: 60%;
 }
 
@@ -103,22 +107,23 @@ input[type="date"] {
     border-radius: 5px;
 }
 
-#exibeDadosVendedor {
+#exibeDadosProduto {
     text-align: center;
 }
 
-#exibeDadosVendedor table {
+#exibeDadosProduto table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     border: 2px solid lightgray;
 }
 
-#exibeDadosVendedor th,
-#exibeDadosVendedor td {
+#exibeDadosProduto th,
+#exibeDadosProduto td {
     border: 2px solid lightgray;
     padding: 10px;
 }
+
 
 .hidden {
     display: none;

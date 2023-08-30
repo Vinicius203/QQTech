@@ -99,12 +99,35 @@ function salvarEdicaoVendedor(index) {
     exibeVendedor();
 }
 
+function gerarRelatorio() {
+    console.log("Hello");
+    const sellerJsonData = JSON.stringify(vendedorList);
+    console.log("Dados: ", sellerJsonData);
+
+    fetch("http://localhost:5000/gerar-relatorio", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: sellerJsonData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Reponse JSON:", data)
+            if (data.success) {
+                console.log("Relatório gerado com sucesso! Caminho do arquivo:", data.output_path);
+            } else {
+                console.error("Erro ao gerar relatório:", data.error);
+            }
+        })
+}
+
 function switchToClientes() {
-    window.location.href = 'cliente.html';
+    window.location.href = '../../cliente/static/cliente.html';
 }
 
 function switchToProdutos() {
-    window.location.href = 'produto.html';
+    window.location.href = '../../produto/static/produto.html';
 }
 
 function switchToVendedores() {

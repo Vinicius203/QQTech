@@ -11,7 +11,7 @@ CORS(app)
 
 @app.route("/")
 def index():
-    return render_template("cliente.html")
+    return render_template("vendedor.html")
 
 
 @app.route("/gerar-relatorio", methods=["POST"])
@@ -19,15 +19,15 @@ def gerar_relatorio():
     try:
         data = request.json
         print("Dados recebidos: ", data)
-        client_list = []
-        client_list.extend(data)
+        seller_list = []
+        seller_list.extend(data)
 
         workbook = openpyxl.Workbook()
         sheet = workbook.active
-        sheet.append(["Nome", "Data de Nascimento", "CPF", "Cadastro", "Score"])
+        sheet.append(["Nome", "Matrícula"])
 
-        for client_data in client_list:
-            sheet.append(client_data)
+        for seller_data in seller_list:
+            sheet.append(seller_data)
 
         report_path = "static/report.xlsx"
         workbook.save(report_path)

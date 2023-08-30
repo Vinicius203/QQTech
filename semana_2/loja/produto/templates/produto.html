@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="produto.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='produto.css') }}">
     <title>Loja</title>
 </head>
 
-<body onload="maskCPF()">
+<body>
     <div id="pageSwitchButtons">
         <button onclick="switchToClientes()">Clientes</button>
         <button onclick="switchToProdutos()">Produtos</button>
@@ -48,6 +48,7 @@
                 <input type="text" id="consultaCategoria" class="produtoCategoria" autocomplete="off">
                 <button id="btnSearchProduct" class="btnForm" onclick="findProductByCategory()"
                     type="button">Pesquisar</button>
+                <button id="gerarRelatorio" class="btnForm" onclick="gerarRelatorio()">Relatório</button>
             </div>
         </div>
 
@@ -69,7 +70,7 @@
 
     </div>
 
-    <script src="produto.js"></script>
+    <script src="{{ url_for('static', filename='produto.js') }}"></script>
 </body>
 
 </html>
